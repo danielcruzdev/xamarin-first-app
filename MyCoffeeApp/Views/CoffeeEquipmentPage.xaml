@@ -6,13 +6,18 @@
 
     <Grid RowDefinitions="*,Auto,Auto,*">
         <Label 
-            Grid.Row="1" 
+            x:Name="LabelCount"
+            Grid.Row="0" 
             BackgroundColor="Orange"
-            Text="Welcome to Xamarin.Forms!"
+            Text="{Binding CountDisplay}"
+            FontSize="Large"
             VerticalOptions="CenterAndExpand" 
             HorizontalOptions="CenterAndExpand" />
 
-        <Button Grid.Row="2" Text="Click Me" />
+        <Button x:Name="ButtonClick" 
+                Grid.Row="1" 
+                Clicked="ButtonClick_Clicked"
+                Text="Click Me" />
     </Grid>
 
 </ContentPage>
