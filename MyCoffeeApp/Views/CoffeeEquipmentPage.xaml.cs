@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using System.Windows.Input;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace MyCoffeeApp.Views
@@ -8,6 +9,7 @@ namespace MyCoffeeApp.Views
     {
         int count = 0;
         string countDisplay = "Click Me!";
+        public ICommand IncreaseCount { get; }
         public string CountDisplay
         {
             get => countDisplay;
@@ -24,10 +26,11 @@ namespace MyCoffeeApp.Views
         public CoffeeEquipmentPage()
         {
             InitializeComponent();
+            IncreaseCount = new Command(OnIncrease);
             BindingContext = this;
         }
 
-        private void ButtonClick_Clicked(object sender, System.EventArgs e)
+        void OnIncrease(object obj)
         {
             count++;
             CountDisplay = $"You clicked {count} time(s)";

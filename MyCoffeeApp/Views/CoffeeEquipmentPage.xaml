@@ -16,7 +16,7 @@
 
         <Button x:Name="ButtonClick" 
                 Grid.Row="1" 
-                Clicked="ButtonClick_Clicked"
+                Command="{Binding IncreaseCount}"
                 Text="Click Me" />
     </Grid>
 
