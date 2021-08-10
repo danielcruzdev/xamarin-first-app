@@ -13,8 +13,11 @@
               ItemsSource="{Binding Coffee}">
         <ListView.ItemTemplate>
             <DataTemplate>
-                <TextCell Text="{Binding Name}"
-                          Detail="{Binding Roaster}"/>
+                <ViewCell>
+                    <Grid>
+                        
+                    </Grid>
+                </ViewCell>
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>
