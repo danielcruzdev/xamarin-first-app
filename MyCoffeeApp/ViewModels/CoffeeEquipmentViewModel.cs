@@ -17,16 +17,18 @@ namespace MyCoffeeApp.ViewModels
             Coffee = new ObservableRangeCollection<Coffee>();
             CoffeeGroups = new ObservableRangeCollection<Grouping<string, Coffee>>();
             Title = "Coffee Equipment";
+            RefreshCommand = new AsyncCommand(Refresh);
 
             var image = "https://www.graogourmet.com/wp-content/uploads/2016/07/bulletproof-coffee-cafe-com-mct-manteiga-ghee-190718-1280x720.jpg";
 
             Coffee.Add(new Coffee { Roaster = "Yes Plz", Name = "Sip of sunshine", Image = image });
             Coffee.Add(new Coffee { Roaster = "Yes Plz", Name = "Potent Portable", Image = image });
-            Coffee.Add(new Coffee { Roaster = "Blue Bottle", Name = "Kenya Kiambu", Image = image });
-            Coffee.Add(new Coffee { Roaster = "Blue Bottle", Name = "Kenya Kiambu", Image = image });
-            Coffee.Add(new Coffee { Roaster = "Blue Bottle", Name = "Kenya Kiambu", Image = image });
-            Coffee.Add(new Coffee { Roaster = "Blue Bottle", Name = "Kenya Kiambu", Image = image });
-            Coffee.Add(new Coffee { Roaster = "Blue Bottle", Name = "Kenya Kiambu", Image = image });
+            Coffee.Add(new Coffee { Roaster = "Yes Plz", Name = "Potent Portable", Image = image });
+            Coffee.Add(new Coffee { Roaster = "Yes Plz", Name = "Potent Portable", Image = image });
+            Coffee.Add(new Coffee { Roaster = "Yes Plz", Name = "Potent Portable", Image = image });
+            Coffee.Add(new Coffee { Roaster = "Yes Plz", Name = "Potent Portable", Image = image });
+            Coffee.Add(new Coffee { Roaster = "Yes Plz", Name = "Potent Portable", Image = image });
+            Coffee.Add(new Coffee { Roaster = "Yes Plz", Name = "Potent Portable", Image = image });
             Coffee.Add(new Coffee { Roaster = "Blue Bottle", Name = "Kenya Kiambu", Image = image });
             Coffee.Add(new Coffee { Roaster = "Blue Bottle", Name = "Kenya Kiambu", Image = image });
             Coffee.Add(new Coffee { Roaster = "Blue Bottle", Name = "Kenya Kiambu", Image = image });

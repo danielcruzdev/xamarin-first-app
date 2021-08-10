@@ -10,12 +10,22 @@
     </ContentPage.BindingContext>
 
     <ListView BackgroundColor="Transparent"
-              ItemsSource="{Binding Coffee}"
+              ItemsSource="{Binding CoffeeGroups}"
               HasUnevenRows="True"
+              IsGroupingEnabled="True"
+              GroupDisplayBinding="{Binding Key}"
+              IsPullToRefreshEnabled="True"
+              IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+              RefreshCommand="{Binding RefreshCommand}"
+              RefreshControlColor="Brown"
               SeparatorVisibility="None">
         <ListView.ItemTemplate>
             <DataTemplate x:DataType="model:Coffee">
                 <ViewCell>
+                    <ViewCell.ContextActions>
+                        <MenuItem Text="Favorite"/>
+                        <MenuItem Text="Delete"/>
+                    </ViewCell.ContextActions>
                     <Grid Padding="11">
                         <Frame CornerRadius="20" 
                                HasShadow="True">
@@ -36,6 +46,16 @@
                 </ViewCell>
             </DataTemplate>
         </ListView.ItemTemplate>
+        <ListView.Header>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Label Text="Coffe of the World!"/>
+            </StackLayout>
+        </ListView.Header>
+        <ListView.Footer>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Button Text="Load More"/>
+            </StackLayout>
+        </ListView.Footer>
     </ListView>
 
 </ContentPage> 
