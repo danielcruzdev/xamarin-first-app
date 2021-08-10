@@ -10,5 +10,20 @@ namespace MyCoffeeApp.Views
         {
             InitializeComponent();
         }
+
+        private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+
+        }
+
+        private void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+
+        }
+
+        private void MenuItem_Clicked(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }

@@ -9,21 +9,25 @@
         <viewmodels:CoffeeEquipmentViewModel/>
     </ContentPage.BindingContext>
 
-    <ListView BackgroundColor="Transparent"
-              ItemsSource="{Binding CoffeeGroups}"
-              HasUnevenRows="True"
-              IsGroupingEnabled="True"
-              GroupDisplayBinding="{Binding Key}"
-              IsPullToRefreshEnabled="True"
-              IsRefreshing="{Binding IsBusy, Mode=OneWay}"
-              RefreshCommand="{Binding RefreshCommand}"
-              RefreshControlColor="Brown"
-              SeparatorVisibility="None">
+    <ListView 
+        ItemSelected="ListView_ItemSelected"
+        ItemTapped="ListView_ItemTapped"
+        CachingStrategy="RecycleElement"
+        BackgroundColor="Transparent"
+        ItemsSource="{Binding CoffeeGroups}"
+        HasUnevenRows="True"
+        IsGroupingEnabled="True"
+        GroupDisplayBinding="{Binding Key}"
+        IsPullToRefreshEnabled="True"
+        IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+        RefreshCommand="{Binding RefreshCommand}"
+        RefreshControlColor="Brown"
+        SeparatorVisibility="None">
         <ListView.ItemTemplate>
             <DataTemplate x:DataType="model:Coffee">
                 <ViewCell>
                     <ViewCell.ContextActions>
-                        <MenuItem Text="Favorite"/>
+                        <MenuItem Text="Favorite" Clicked="MenuItem_Clicked"/>
                         <MenuItem Text="Delete"/>
                     </ViewCell.ContextActions>
                     <Grid Padding="11">
