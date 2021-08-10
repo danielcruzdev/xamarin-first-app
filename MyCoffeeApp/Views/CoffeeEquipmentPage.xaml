@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             xmlns:viewmodels="clr-namespace:MyCoffeeApp.ViewModels"
+             xmlns:viewmodels="clr-namespace:MyCoffeeApp.ViewModels" xmlns:model="clr-namespace:MyCoffeeApp.Models"
              x:Class="MyCoffeeApp.Views.CoffeeEquipmentPage"
              x:DataType="viewmodels:CoffeeEquipmentViewModel"
              BackgroundColor="White">
@@ -10,16 +10,32 @@
     </ContentPage.BindingContext>
 
     <ListView BackgroundColor="Transparent"
-              ItemsSource="{Binding Coffee}">
+              ItemsSource="{Binding Coffee}"
+              HasUnevenRows="True"
+              SeparatorVisibility="None">
         <ListView.ItemTemplate>
-            <DataTemplate>
+            <DataTemplate x:DataType="model:Coffee">
                 <ViewCell>
-                    <Grid>
-                        
+                    <Grid Padding="11">
+                        <Frame CornerRadius="20" 
+                               HasShadow="True">
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="{Binding Image}" 
+                                       WidthRequest="100"/>
+                                <StackLayout>
+                                    <Label Text="{Binding Name}"
+                                           FontSize="Large"
+                                           VerticalOptions="Center"/>
+                                    <Label Text="{Binding Roaster}"
+                                           FontSize="Large"
+                                           VerticalOptions="Center"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
                     </Grid>
                 </ViewCell>
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>
 
-</ContentPage>
+</ContentPage> 

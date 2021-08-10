@@ -23,6 +23,19 @@ namespace MyCoffeeApp.ViewModels
             Coffee.Add(new Coffee { Roaster = "Yes Plz", Name = "Sip of sunshine", Image = image });
             Coffee.Add(new Coffee { Roaster = "Yes Plz", Name = "Potent Portable", Image = image });
             Coffee.Add(new Coffee { Roaster = "Blue Bottle", Name = "Kenya Kiambu", Image = image });
+            Coffee.Add(new Coffee { Roaster = "Blue Bottle", Name = "Kenya Kiambu", Image = image });
+            Coffee.Add(new Coffee { Roaster = "Blue Bottle", Name = "Kenya Kiambu", Image = image });
+            Coffee.Add(new Coffee { Roaster = "Blue Bottle", Name = "Kenya Kiambu", Image = image });
+            Coffee.Add(new Coffee { Roaster = "Blue Bottle", Name = "Kenya Kiambu", Image = image });
+            Coffee.Add(new Coffee { Roaster = "Blue Bottle", Name = "Kenya Kiambu", Image = image });
+            Coffee.Add(new Coffee { Roaster = "Blue Bottle", Name = "Kenya Kiambu", Image = image });
+            Coffee.Add(new Coffee { Roaster = "Blue Bottle", Name = "Kenya Kiambu", Image = image });
+            Coffee.Add(new Coffee { Roaster = "Blue Bottle", Name = "Kenya Kiambu", Image = image });
+            Coffee.Add(new Coffee { Roaster = "Blue Bottle", Name = "Kenya Kiambu", Image = image });
+            Coffee.Add(new Coffee { Roaster = "Blue Bottle", Name = "Kenya Kiambu", Image = image });
+            Coffee.Add(new Coffee { Roaster = "Blue Bottle", Name = "Kenya Kiambu", Image = image });
+            Coffee.Add(new Coffee { Roaster = "Blue Bottle", Name = "Kenya Kiambu", Image = image });
+            Coffee.Add(new Coffee { Roaster = "Blue Bottle", Name = "Kenya Kiambu", Image = image });
 
             CoffeeGroups.Add(new Grouping<string, Coffee>("Blue Bottle", Coffee.Where(c => c.Roaster == "Blue Bottle")));
             CoffeeGroups.Add(new Grouping<string, Coffee>("Yes Plz", Coffee.Where(c => c.Roaster == "Yes Plz")));
