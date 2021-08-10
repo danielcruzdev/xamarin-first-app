@@ -1,44 +1,40 @@
 ﻿using MvvmHelpers;
 using MvvmHelpers.Commands;
-using System.Collections.Generic;
+using MyCoffeeApp.Models;
+using System.Linq;
 using System.Threading.Tasks;
-using System.Windows.Input;
 
 namespace MyCoffeeApp.ViewModels
 {
     public class CoffeeEquipmentViewModel : ViewModelBase
     {
-        public ObservableRangeCollection<string> Coffee { get; set; }
-
-        public string CountDisplay
-        {
-            get => countDisplay;
-            set => SetProperty(ref countDisplay, value);
-        }
+        public ObservableRangeCollection<Coffee> Coffee { get; set; }
+        public ObservableRangeCollection<Grouping<string, Coffee>> CoffeeGroups { get; set; }
+        public AsyncCommand RefreshCommand { get; }
 
         public CoffeeEquipmentViewModel()
         {
-            IncreaseCount = new Command(OnIncrease);
-            CallServerCommand = new AsyncCommand(CallServer);
-            Coffee = new ObservableRangeCollection<string>();
+            Coffee = new ObservableRangeCollection<Coffee>();
+            CoffeeGroups = new ObservableRangeCollection<Grouping<string, Coffee>>();
             Title = "Coffee Equipment";
+
+            var image = "https://www.graogourmet.com/wp-content/uploads/2016/07/bulletproof-coffee-cafe-com-mct-manteiga-ghee-190718-1280x720.jpg";
+
+            Coffee.Add(new Coffee { Roaster = "Yes Plz", Name = "Sip of sunshine", Image = image });
+            Coffee.Add(new Coffee { Roaster = "Yes Plz", Name = "Potent Portable", Image = image });
+            Coffee.Add(new Coffee { Roaster = "Blue Bottle", Name = "Kenya Kiambu", Image = image });
+
+            CoffeeGroups.Add(new Grouping<string, Coffee>("Blue Bottle", Coffee.Where(c => c.Roaster == "Blue Bottle")));
+            CoffeeGroups.Add(new Grouping<string, Coffee>("Yes Plz", Coffee.Where(c => c.Roaster == "Yes Plz")));
         }
 
-        int count = 0;
-        string countDisplay = "Click Me!";
-        public ICommand IncreaseCount { get; }
-        public ICommand CallServerCommand { get; }
-
-        async Task CallServer()
+        async Task Refresh()
         {
-            var items = new List<string> { "Yes, please!", "No, thanks!", "No! I Hate Coffee" };
-            Coffee.AddRange(items);
-        }
+            IsBusy = true;
 
-        void OnIncrease(object obj)
-        {
-            count++;
-            CountDisplay = $"You clicked {count} time(s)";
+            await Task.Delay(2000);
+
+            IsBusy = false;
         }
     }
 }
