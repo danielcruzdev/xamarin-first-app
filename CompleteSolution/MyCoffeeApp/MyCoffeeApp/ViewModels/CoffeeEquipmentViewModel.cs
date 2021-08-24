@@ -1,6 +1,7 @@
 ﻿using MvvmHelpers;
 using MvvmHelpers.Commands;
 using MyCoffeeApp.Shared.Models;
+using MyCoffeeApp.Views;
 using System.Linq;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -29,10 +30,10 @@ namespace MyCoffeeApp.ViewModels
 
             Coffee = new ObservableRangeCollection<Coffee>();
             CoffeeGroups = new ObservableRangeCollection<Grouping<string, Coffee>>();
-            
 
-            LoadMore(); 
-            
+
+            LoadMore();
+
             RefreshCommand = new AsyncCommand(Refresh);
             FavoriteCommand = new AsyncCommand<Coffee>(Favorite);
             SelectedCommand = new AsyncCommand<object>(Selected);
@@ -46,8 +47,8 @@ namespace MyCoffeeApp.ViewModels
             if (coffee == null)
                 return;
 
-            await Application.Current.MainPage.DisplayAlert("Favorite", coffee.Name, "OK");
-
+            var route = $"{nameof(TesteShellPage)}?NameOfCoffee={coffee.Name}";
+            await Shell.Current.GoToAsync(route);
         }
 
         Coffee previouslySelected;
@@ -106,7 +107,7 @@ namespace MyCoffeeApp.ViewModels
                 return;
 
             LoadMore();
-         }
+        }
 
 
         void Clear()
