@@ -47,7 +47,7 @@ namespace MyCoffeeApp.ViewModels
             if (coffee == null)
                 return;
 
-            var route = $"{nameof(TesteShellPage)}?NameOfCoffee={coffee.Name}";
+            var route = $"{nameof(TesteShellPage)}?ImageOfCoffe={coffee.Image}";
             await Shell.Current.GoToAsync(route);
         }
 

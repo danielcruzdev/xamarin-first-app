@@ -2,15 +2,15 @@
 
 namespace MyCoffeeApp.ViewModels
 {
-    [QueryProperty(nameof(NameOfCoffee), nameof(NameOfCoffee))]
+    [QueryProperty(nameof(ImageOfCoffe), nameof(ImageOfCoffe))]
     public class TesteImageViewModel : ViewModelBase
     {
-        private string nameOfCoffee;
+        private string imageOfCoffe;
 
-        public string NameOfCoffee
+        public string ImageOfCoffe
         {
-            get => nameOfCoffee;
-            set => SetProperty(ref nameOfCoffee, value);
+            get => imageOfCoffe;
+            set => SetProperty(ref imageOfCoffe, value);
         }
     }
 }
